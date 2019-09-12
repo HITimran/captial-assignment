@@ -7,36 +7,39 @@ import org.im.grp.shapes.Shape;
 import org.im.grp.shapes.Triangle;
 
 import java.util.Arrays;
+import java.util.logging.Logger;
 
-<span class="fc" id="L11">public class ShapeFactory {</span>
+
+<span class="fc" id="L13">public class ShapeFactory {</span>
+<span class="fc" id="L14">    final static Logger log = Logger.getLogger(ShapeFactory.class.getName());</span>
 
     public CalculateAreaService getAreaOf(Shape shape, double[] sides) {
-<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (hasNegativeSides(sides)) {</span>
-<span class="fc" id="L15">            throw new ValidationFailException(&quot;Areas cannot be formed with negative value/s&quot;);</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (hasNegativeSides(sides)) {</span>
+<span class="fc" id="L18">            throw new ValidationFailException(&quot;areas cannot be formed with negative value/s&quot;);</span>
         }
-<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (shape != null) {</span>
-<span class="fc bfc" id="L18" title="All 3 branches covered.">            switch (shape) {</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (shape != null) {</span>
+<span class="fc bfc" id="L21" title="All 3 branches covered.">            switch (shape) {</span>
                 case Circle: {
-<span class="fc" id="L20">                    return new Circle(sides);</span>
+<span class="fc" id="L23">                    return new Circle(sides);</span>
                 }
                 case Triangle: {
-<span class="fc" id="L23">                    return new Triangle(sides);</span>
+<span class="fc" id="L26">                    return new Triangle(sides);</span>
                 }
                 default: {
-<span class="fc" id="L26">                    throw new IllegalArgumentException(&quot;Area of the &quot; + shape.name() + &quot; is not implemented&quot;);</span>
+<span class="fc" id="L29">                    throw new IllegalArgumentException(&quot;Area of the &quot; + shape.name() + &quot; is not implemented&quot;);</span>
                 }
             }
         } else {
-<span class="fc" id="L30">            throw new NullPointerException(&quot;Shapes can't be null&quot;);</span>
+<span class="fc" id="L33">            throw new NullPointerException(&quot;Shapes can't be null&quot;);</span>
         }
     }
 
     private boolean hasNegativeSides(double[] sides) {
         try {
-<span class="fc bfc" id="L36" title="All 4 branches covered.">            return Arrays.stream(sides).filter(i -&gt; i &lt; 0).toArray().length &gt; 0 ? true : false;</span>
-<span class="fc" id="L37">        }catch (NullPointerException e)</span>
-        {
-<span class="fc" id="L39">            throw new NullPointerException(&quot;Sides cannot be null , Please enter a valid parameter&quot;);</span>
+<span class="fc bfc" id="L39" title="All 4 branches covered.">            return Arrays.stream(sides).filter(i -&gt; i &lt; 0).toArray().length &gt; 0 ? true : false;</span>
+<span class="fc" id="L40">        } catch (NullPointerException e) {</span>
+<span class="fc" id="L41">            log.info(String.format(String.format(&quot;The arguments has null values %s &quot;, sides)));</span>
+<span class="fc" id="L42">            throw new NullPointerException(&quot;Sides cannot be null , Please enter a valid parameter&quot;);</span>
         }
     }
 }

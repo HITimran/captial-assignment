@@ -13,7 +13,7 @@ public class TriangleTest {
 
     private ShapeFactory shapeFactory;
 
-    CalculateAreaService area;
+    private CalculateAreaService area;
 
     @Before
     public void test() {
@@ -51,7 +51,7 @@ public class TriangleTest {
         double[] sides = {8.0, 9, 10.0};
         area = shapeFactory.getAreaOf(Shape.Triangle, sides);
         assertEquals("The area of the Triangle should be returned with delta precision of 0.001 ",
-                34.197, area.calculateArea(), 0.001);
+                34.197, area.getArea(), 0.001);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class TriangleTest {
         boolean thrown = false;
         try {
             area = shapeFactory.getAreaOf(Shape.Triangle, sides);
-            area.calculateArea();
+            area.getArea();
         } catch (ValidationFailException e) {
             thrown = true;
             assertEquals(e.getMessage(), "Triangle should have valid sides , checkout sides again for " + area.toString());
@@ -76,7 +76,7 @@ public class TriangleTest {
         boolean thrown = false;
         try {
             area = shapeFactory.getAreaOf(Shape.Triangle, sides);
-            area.calculateArea();
+            area.getArea();
         } catch (ValidationFailException e) {
             thrown = true;
             assertEquals(e.getMessage(), "Triangle should have valid sides , checkout sides again for " + area.toString());
@@ -91,7 +91,7 @@ public class TriangleTest {
         boolean thrown = false;
         try {
             area = shapeFactory.getAreaOf(Shape.Triangle, sides);
-            area.calculateArea();
+            area.getArea();
         } catch (ValidationFailException e) {
             thrown = true;
             assertEquals(e.getMessage(), "Triangle should have valid sides , checkout sides again for " + area.toString());

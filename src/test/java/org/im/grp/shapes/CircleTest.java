@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class CircleTest {
     private ShapeFactory shapeFactory;
 
-    CalculateAreaService area;
+    private CalculateAreaService area;
 
     @Before
     public void test() {
@@ -25,7 +25,7 @@ public class CircleTest {
             area = shapeFactory.getAreaOf(Shape.Circle, null);
         } catch (NullPointerException e) {
             thrown = true;
-            assertEquals( "Sides cannot be null , Please enter a valid parameter",e.getMessage());
+            assertEquals("Sides cannot be null , Please enter a valid parameter", e.getMessage());
         }
         assertTrue(thrown);
     }
@@ -35,7 +35,7 @@ public class CircleTest {
         double[] sides = {8.0};
         area = shapeFactory.getAreaOf(Shape.Circle, sides);
         assertEquals("The area of the Circle should be returned with delta precision of 0.062 ",
-                201.0, area.calculateArea(), 0.062);
+                201.0, area.getArea(), 0.062);
     }
 
     @Test
@@ -46,7 +46,7 @@ public class CircleTest {
             area = shapeFactory.getAreaOf(Shape.Circle, sides);
         } catch (IllegalArgumentException e) {
             thrown = true;
-            assertEquals(e.getMessage(), "Circle require only Radius , please remove extra arguments");
+            assertEquals("Circle require only Radius , extra arguments should be removed", e.getMessage());
         }
         assertTrue(thrown);
     }

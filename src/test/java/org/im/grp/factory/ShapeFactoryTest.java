@@ -11,9 +11,9 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class ShapeFactoryTest {
-    ShapeFactory shapeFactory;
+    private ShapeFactory shapeFactory;
 
-    CalculateAreaService area;
+    private CalculateAreaService area;
 
     @Before
     public void test() {
@@ -22,7 +22,7 @@ public class ShapeFactoryTest {
 
     @Test
     public void testTriangleWithValidArguments() {
-        double[] sides = {5.0, 6.0, 7.0};
+        double[] sides = {5.0, 6.0, 7.0f};
         area = shapeFactory.getAreaOf(Shape.Triangle, sides);
         Assert.assertNotNull(area);
     }
@@ -68,7 +68,7 @@ public class ShapeFactoryTest {
             area = shapeFactory.getAreaOf(Shape.Circle, sides);
         } catch (ValidationFailException e) {
             thrown = true;
-            assertEquals(e.getMessage(), "Areas cannot be formed with negative value/s");
+            assertEquals(e.getMessage(), "areas cannot be formed with negative value/s");
         }
         assertTrue(thrown);
     }

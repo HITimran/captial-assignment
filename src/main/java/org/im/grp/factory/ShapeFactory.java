@@ -7,12 +7,15 @@ import org.im.grp.shapes.Shape;
 import org.im.grp.shapes.Triangle;
 
 import java.util.Arrays;
+import java.util.logging.Logger;
+
 
 public class ShapeFactory {
+    private final static Logger log = Logger.getLogger(ShapeFactory.class.getName());
 
     public CalculateAreaService getAreaOf(Shape shape, double[] sides) {
         if (hasNegativeSides(sides)) {
-            throw new ValidationFailException("Areas cannot be formed with negative value/s");
+            throw new ValidationFailException("areas cannot be formed with negative value/s");
         }
         if (shape != null) {
             switch (shape) {
@@ -33,9 +36,9 @@ public class ShapeFactory {
 
     private boolean hasNegativeSides(double[] sides) {
         try {
-            return Arrays.stream(sides).filter(i -> i < 0).toArray().length > 0 ? true : false;
-        }catch (NullPointerException e)
-        {
+            return Arrays.stream(sides).filter(i -> i < 0).toArray().length > 0;
+        } catch (NullPointerException e) {
+            log.info(String.format("The arguments has null values %s ", sides));
             throw new NullPointerException("Sides cannot be null , Please enter a valid parameter");
         }
     }
