@@ -69,6 +69,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.19</version>
             </plugin>
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>4.3.0</version>
+                <configuration>
+                    <repoToken>oQyyiKvLrPc1A8QdFwhDuQysThT8Ajksk</repoToken>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 </project>
