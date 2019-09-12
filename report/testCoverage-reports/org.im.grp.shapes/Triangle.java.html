@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Triangle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shapes-area-calculator</a> &gt; <a href="index.source.html" class="el_package">org.im.grp.shapes</a> &gt; <span class="el_source">Triangle.java</span></div><h1>Triangle.java</h1><pre class="source lang-java linenums">package org.im.grp.shapes;
+
+import org.im.grp.CalculateAreaService;
+import org.im.grp.CustomExceptions.ValidationFailException;
+
+public class Triangle implements CalculateAreaService {
+
+    private double sideA;
+    private double sideB;
+    private double sideC;
+
+<span class="fc" id="L12">    public Triangle(double sides[]) {</span>
+        try {
+<span class="fc bfc" id="L14" title="All 2 branches covered.">            if (sides.length == 3) {</span>
+<span class="fc" id="L15">                this.sideA = sides[0];</span>
+<span class="fc" id="L16">                this.sideB = sides[1];</span>
+<span class="fc" id="L17">                this.sideC = sides[2];</span>
+            } else {
+<span class="fc" id="L19">                throw new IllegalArgumentException(&quot;Triangle has 3 sides and not :: &quot; + sides.length + &quot; :: sides&quot;);</span>
+            }
+<span class="fc" id="L21">        } catch (NullPointerException e) {</span>
+<span class="fc" id="L22">            throw new NullPointerException(&quot;Possibly all/one among sides are null, we cannot create triangle with null side/s&quot;);</span>
+<span class="fc" id="L23">        }</span>
+<span class="fc" id="L24">    }</span>
+
+
+    // Function to calculate for validity
+    private boolean hasValidSides() {
+        // check condition
+<span class="fc bfc" id="L30" title="All 6 branches covered.">        if (sideA + sideB &lt;= sideC</span>
+               || sideA + sideC &lt;= sideB
+              || sideB + sideC &lt;= sideA
+        )
+<span class="fc" id="L34">            return false;</span>
+        else
+<span class="fc" id="L36">            return true;</span>
+    }
+
+    @Override
+    public double calculateArea() {
+        //The area of a triangle is derived using hero's formula
+<span class="fc bfc" id="L42" title="All 2 branches covered.">        if (hasValidSides()) {</span>
+            //where p is half perimeter of the triangle
+<span class="fc" id="L44">            double p = (sideA + sideB + sideC) / 2;</span>
+<span class="fc" id="L45">            return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));</span>
+        } else
+<span class="fc" id="L47">            throw new ValidationFailException(&quot;Triangle should have valid sides , checkout sides again for &quot; + toString());</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L52">        return &quot;Triangle{&quot; +</span>
+                &quot;sideA=&quot; + sideA +
+                &quot;, sideB=&quot; + sideB +
+                &quot;, sideC=&quot; + sideC +
+                '}';
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
