@@ -1,13 +1,19 @@
 package org.im.grp.factory;
 
 import org.im.grp.CalculateAreaService;
+import org.im.grp.CustomExceptions.ValidationFailException;
 import org.im.grp.shapes.Circle;
 import org.im.grp.shapes.Shape;
 import org.im.grp.shapes.Triangle;
 
+import java.util.Arrays;
+
 public class ShapeFactory {
 
     public CalculateAreaService getAreaOf(Shape shape, double[] sides) {
+        if (hasNegativeSides(sides)) {
+            throw new ValidationFailException("Areas cannot be formed with negative value/s");
+        }
         if (shape != null) {
             switch (shape) {
                 case Circle: {
@@ -23,6 +29,14 @@ public class ShapeFactory {
         } else {
             throw new NullPointerException("Shapes can't be null");
         }
+    }
 
+    private boolean hasNegativeSides(double[] sides) {
+        try {
+            return Arrays.stream(sides).filter(i -> i < 0).toArray().length > 0 ? true : false;
+        }catch (NullPointerException e)
+        {
+            throw new NullPointerException("Sides cannot be null , Please enter a valid parameter");
+        }
     }
 }

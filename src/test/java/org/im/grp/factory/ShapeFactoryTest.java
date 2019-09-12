@@ -1,11 +1,11 @@
 package org.im.grp.factory;
 
 import org.im.grp.CalculateAreaService;
+import org.im.grp.CustomExceptions.ValidationFailException;
 import org.im.grp.shapes.Shape;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -13,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 public class ShapeFactoryTest {
     ShapeFactory shapeFactory;
 
-    @Mock
     CalculateAreaService area;
 
     @Before
@@ -50,12 +49,26 @@ public class ShapeFactoryTest {
 
     @Test
     public void testForShapesWhenCalculateAreaServiceNotImplemented() {
+        double[] sides = {5.0};
         boolean thrown = false;
         try {
-            area = shapeFactory.getAreaOf(Shape.Square, null);
+            area = shapeFactory.getAreaOf(Shape.Square, sides);
         } catch (IllegalArgumentException e) {
             thrown = true;
             assertEquals(e.getMessage(), "Area of the Square is not implemented");
+        }
+        assertTrue(thrown);
+    }
+
+    @Test
+    public void testForSidesWhenContainNegativeValue() {
+        double[] sides = {-5.0};
+        boolean thrown = false;
+        try {
+            area = shapeFactory.getAreaOf(Shape.Circle, sides);
+        } catch (ValidationFailException e) {
+            thrown = true;
+            assertEquals(e.getMessage(), "Areas cannot be formed with negative value/s");
         }
         assertTrue(thrown);
     }

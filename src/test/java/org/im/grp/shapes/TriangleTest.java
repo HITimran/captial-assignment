@@ -5,7 +5,6 @@ import org.im.grp.CustomExceptions.ValidationFailException;
 import org.im.grp.factory.ShapeFactory;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -14,7 +13,6 @@ public class TriangleTest {
 
     private ShapeFactory shapeFactory;
 
-    @Mock
     CalculateAreaService area;
 
     @Before
@@ -29,7 +27,7 @@ public class TriangleTest {
             area = shapeFactory.getAreaOf(Shape.Triangle, null);
         } catch (NullPointerException e) {
             thrown = true;
-            assertEquals(e.getMessage(), "Possibly all/one among sides are null, we cannot create triangle with null side/s");
+            assertEquals(e.getMessage(), "Sides cannot be null , Please enter a valid parameter");
         }
         assertTrue(thrown);
     }

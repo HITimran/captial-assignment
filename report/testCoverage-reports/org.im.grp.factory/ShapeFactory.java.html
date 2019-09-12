@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ShapeFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">shapes-area-calculator</a> &gt; <a href="index.source.html" class="el_package">org.im.grp.factory</a> &gt; <span class="el_source">ShapeFactory.java</span></div><h1>ShapeFactory.java</h1><pre class="source lang-java linenums">package org.im.grp.factory;
 
 import org.im.grp.CalculateAreaService;
+import org.im.grp.CustomExceptions.ValidationFailException;
 import org.im.grp.shapes.Circle;
 import org.im.grp.shapes.Shape;
 import org.im.grp.shapes.Triangle;
 
-<span class="fc" id="L8">public class ShapeFactory {</span>
+import java.util.Arrays;
+
+<span class="fc" id="L11">public class ShapeFactory {</span>
 
     public CalculateAreaService getAreaOf(Shape shape, double[] sides) {
-<span class="fc bfc" id="L11" title="All 2 branches covered.">        if (shape != null) {</span>
-<span class="fc bfc" id="L12" title="All 3 branches covered.">            switch (shape) {</span>
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (hasNegativeSides(sides)) {</span>
+<span class="fc" id="L15">            throw new ValidationFailException(&quot;Areas cannot be formed with negative value/s&quot;);</span>
+        }
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (shape != null) {</span>
+<span class="fc bfc" id="L18" title="All 3 branches covered.">            switch (shape) {</span>
                 case Circle: {
-<span class="fc" id="L14">                    return new Circle(sides);</span>
+<span class="fc" id="L20">                    return new Circle(sides);</span>
                 }
                 case Triangle: {
-<span class="fc" id="L17">                    return new Triangle(sides);</span>
+<span class="fc" id="L23">                    return new Triangle(sides);</span>
                 }
                 default: {
-<span class="fc" id="L20">                    throw new IllegalArgumentException(&quot;Area of the &quot; + shape.name() + &quot; is not implemented&quot;);</span>
+<span class="fc" id="L26">                    throw new IllegalArgumentException(&quot;Area of the &quot; + shape.name() + &quot; is not implemented&quot;);</span>
                 }
             }
         } else {
-<span class="fc" id="L24">            throw new NullPointerException(&quot;Shapes can't be null&quot;);</span>
+<span class="fc" id="L30">            throw new NullPointerException(&quot;Shapes can't be null&quot;);</span>
         }
+    }
 
+    private boolean hasNegativeSides(double[] sides) {
+        try {
+<span class="fc bfc" id="L36" title="All 4 branches covered.">            return Arrays.stream(sides).filter(i -&gt; i &lt; 0).toArray().length &gt; 0 ? true : false;</span>
+<span class="fc" id="L37">        }catch (NullPointerException e)</span>
+        {
+<span class="fc" id="L39">            throw new NullPointerException(&quot;Sides cannot be null , Please enter a valid parameter&quot;);</span>
+        }
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

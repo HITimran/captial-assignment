@@ -10,24 +10,21 @@ public class Triangle implements CalculateAreaService {
     private double sideC;
 
 <span class="fc" id="L12">    public Triangle(double[] sides) {</span>
-        try {
-<span class="fc bfc" id="L14" title="All 2 branches covered.">            if (sides.length == 3) {</span>
-<span class="fc" id="L15">                this.sideA = sides[0];</span>
-<span class="fc" id="L16">                this.sideB = sides[1];</span>
-<span class="fc" id="L17">                this.sideC = sides[2];</span>
-            } else {
-<span class="fc" id="L19">                throw new IllegalArgumentException(&quot;Triangle has 3 sides and not :: &quot; + sides.length + &quot; :: sides&quot;);</span>
-            }
-<span class="fc" id="L21">        } catch (NullPointerException e) {</span>
-<span class="fc" id="L22">            throw new NullPointerException(&quot;Possibly all/one among sides are null, we cannot create triangle with null side/s&quot;);</span>
-<span class="fc" id="L23">        }</span>
-<span class="fc" id="L24">    }</span>
+
+<span class="fc bfc" id="L14" title="All 2 branches covered.">        if (sides.length == 3) {</span>
+<span class="fc" id="L15">            this.sideA = sides[0];</span>
+<span class="fc" id="L16">            this.sideB = sides[1];</span>
+<span class="fc" id="L17">            this.sideC = sides[2];</span>
+        } else {
+<span class="fc" id="L19">            throw new IllegalArgumentException(&quot;Triangle has 3 sides and not :: &quot; + sides.length + &quot; :: sides&quot;);</span>
+        }
+<span class="fc" id="L21">    }</span>
 
 
     // Function to calculate for validity
     private boolean hasValidSides() {
         // check condition
-<span class="fc bfc" id="L30" title="All 6 branches covered.">        return !(sideA + sideB &lt;= sideC)</span>
+<span class="fc bfc" id="L27" title="All 6 branches covered.">        return !(sideA + sideB &lt;= sideC)</span>
                 &amp;&amp; !(sideA + sideC &lt;= sideB)
                 &amp;&amp; !(sideB + sideC &lt;= sideA);
     }
@@ -35,17 +32,17 @@ public class Triangle implements CalculateAreaService {
     @Override
     public double calculateArea() {
         //The area of a triangle is derived using hero's formula
-<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (hasValidSides()) {</span>
+<span class="fc bfc" id="L35" title="All 2 branches covered.">        if (hasValidSides()) {</span>
             //where p is half perimeter of the triangle
-<span class="fc" id="L40">            double p = (sideA + sideB + sideC) / 2;</span>
-<span class="fc" id="L41">            return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));</span>
+<span class="fc" id="L37">            double p = (sideA + sideB + sideC) / 2;</span>
+<span class="fc" id="L38">            return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));</span>
         } else
-<span class="fc" id="L43">            throw new ValidationFailException(&quot;Triangle should have valid sides , checkout sides again for &quot; + toString());</span>
+<span class="fc" id="L40">            throw new ValidationFailException(&quot;Triangle should have valid sides , checkout sides again for &quot; + toString());</span>
     }
 
     @Override
     public String toString() {
-<span class="fc" id="L48">        return &quot;Triangle{&quot; +</span>
+<span class="fc" id="L45">        return &quot;Triangle{&quot; +</span>
                 &quot;sideA=&quot; + sideA +
                 &quot;, sideB=&quot; + sideB +
                 &quot;, sideC=&quot; + sideC +

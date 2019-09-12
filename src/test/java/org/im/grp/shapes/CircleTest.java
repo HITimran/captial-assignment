@@ -4,7 +4,6 @@ import org.im.grp.CalculateAreaService;
 import org.im.grp.factory.ShapeFactory;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 
 import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertEquals;
@@ -12,7 +11,6 @@ import static org.junit.Assert.assertEquals;
 public class CircleTest {
     private ShapeFactory shapeFactory;
 
-    @Mock
     CalculateAreaService area;
 
     @Before
@@ -27,7 +25,7 @@ public class CircleTest {
             area = shapeFactory.getAreaOf(Shape.Circle, null);
         } catch (NullPointerException e) {
             thrown = true;
-            assertEquals( "Please enter a valid radius",e.getMessage());
+            assertEquals( "Sides cannot be null , Please enter a valid parameter",e.getMessage());
         }
         assertTrue(thrown);
     }

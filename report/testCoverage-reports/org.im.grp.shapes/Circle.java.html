@@ -8,22 +8,17 @@ public class Circle implements CalculateAreaService {
     private double radius;
 
 <span class="fc" id="L10">    public Circle(double[] radius) {</span>
-        try {
-<span class="fc bfc" id="L12" title="All 2 branches covered.">            if (radius.length == 1) {</span>
-<span class="fc" id="L13">                this.radius = radius[0];</span>
-            } else {
-<span class="fc" id="L15">                throw new IllegalArgumentException(&quot;Circle require only Radius , please remove extra arguments&quot;);</span>
-            }
-<span class="fc" id="L17">        }catch (NullPointerException e)</span>
-        {
-<span class="fc" id="L19">            throw new NullPointerException(&quot;Please enter a valid radius&quot;);</span>
-<span class="fc" id="L20">        }</span>
 
-<span class="fc" id="L22">    }</span>
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (radius.length == 1) {</span>
+<span class="fc" id="L13">            this.radius = radius[0];</span>
+        } else {
+<span class="fc" id="L15">            throw new IllegalArgumentException(&quot;Circle require only Radius , please remove extra arguments&quot;);</span>
+        }
+<span class="fc" id="L17">    }</span>
 
     @Override
     public double calculateArea() {
-<span class="fc" id="L26">        return Math.PI * radius * radius;</span>
+<span class="fc" id="L21">        return Math.PI * radius * radius;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
