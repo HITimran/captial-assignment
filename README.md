@@ -18,10 +18,16 @@ Create a library (preferable using C#) which will be used by a third-party to ca
 
 ###### Background 
 ```
-A project is created to calculate the area of different shapes , implemented shapes such as circle (using radius) and Triangle (using its 3 sides).
-The design pattern followed in this project is *factory design pattern* which falls under creational pattern design strategy , in factory pattern , we refer to a newly created object using common interface, here we create an object without exposing it to the client
-the creation logic.
-It also promotes loose-coupling by eliminating the need to bind application-specific classes into the code. That means the code interacts solely with the resultant interface or abstract class, so that it will work with any classes that implement that interface or that extends that abstract class and that solves our problem for incorporating new shapes and calculating its area without breaking the existing code.
+A project is created to calculate the area of different shapes , 
+implemented shapes such as circle (using radius) and Triangle (using its 3 sides).
+The design pattern followed in this project is *factory design pattern* which falls under creational pattern
+design strategy ,
+in factory pattern , we refer to a newly created object using common interface, here we create an object 
+without exposing it to the client the creation logic.
+It also promotes loose-coupling by eliminating the need to bind application-specific classes into the code.
+That means the code interacts solely with the resultant interface or abstract class, so that it will work 
+with any classes that implement that interface or that extends that abstract class and that solves our 
+problem for incorporating new shapes and calculating its area without breaking the existing code.
 Junit4 is being used to write the unit test . 
 ```
 
