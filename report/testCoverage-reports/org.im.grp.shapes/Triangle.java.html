@@ -6,7 +6,7 @@ import org.im.grp.CustomExceptions.ValidationFailException;
 import java.util.logging.Logger;
 
 public class Triangle implements CalculateAreaService {
-<span class="fc" id="L9">    final static Logger log = Logger.getLogger(Triangle.class.getName());</span>
+<span class="fc" id="L9">    private final static Logger log = Logger.getLogger(Triangle.class.getName());</span>
     private double sideA;
     private double sideB;
     private double sideC;
@@ -25,7 +25,7 @@ public class Triangle implements CalculateAreaService {
 
     // Function to calculate for validity
     private boolean hasValidSides() {
-<span class="fc" id="L28">        log.info(String.format(String.format(&quot;Checking conditions :: if sides make valid triangle&quot;)));</span>
+<span class="fc" id="L28">        log.info(&quot;Checking conditions :: if sides make valid triangle&quot;);</span>
 <span class="fc bfc" id="L29" title="All 6 branches covered.">        return !(sideA + sideB &lt;= sideC)</span>
                 &amp;&amp; !(sideA + sideC &lt;= sideB)
                 &amp;&amp; !(sideB + sideC &lt;= sideA);
@@ -35,7 +35,7 @@ public class Triangle implements CalculateAreaService {
     public double getArea() {
         //The area of a triangle is derived using hero's formula
 <span class="fc bfc" id="L37" title="All 2 branches covered.">        if (hasValidSides()) {</span>
-<span class="fc" id="L38">            log.info(String.format(String.format(&quot;given sides can make a valid triangle&quot;)));</span>
+<span class="fc" id="L38">            log.info(&quot;given sides can make a valid triangle&quot;);</span>
             //where p is half perimeter of the triangle
 <span class="fc" id="L40">            double p = (sideA + sideB + sideC) / 2;</span>
 <span class="fc" id="L41">            return Math.sqrt(p * (p - sideA) * (p - sideB) * (p - sideC));</span>

@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 public class Circle implements CalculateAreaService {
 
     private double radius;
-<span class="fc" id="L11">    final static Logger log = Logger.getLogger(Triangle.class.getName());</span>
+<span class="fc" id="L11">    private final static Logger log = Logger.getLogger(Triangle.class.getName());</span>
 
 <span class="fc" id="L13">    public Circle(double[] radius) {</span>
 
@@ -21,7 +21,7 @@ public class Circle implements CalculateAreaService {
 
     @Override
     public double getArea() {
-<span class="fc" id="L24">        log.info(String.format(String.format(&quot;calculating the area of circle with %s radius&quot;, radius)));</span>
+<span class="fc" id="L24">        log.info(String.format(&quot;calculating the area of circle with %s radius&quot;, radius));</span>
 <span class="fc" id="L25">        return Math.PI * radius * radius;</span>
     }
 }
