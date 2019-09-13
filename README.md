@@ -30,9 +30,9 @@ calculating its area without breaking the existing code.Junit4 is being used to 
 ```
 
 ###### Tech Spec
- 1. Language : Java 1.8
- 2. UnitTest : Junit4
- 3. BuildFramework : Maven 3.3
+ 1. Language : Java 1.8 [to install](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)  
+ 2. BuildFramework : Maven 3.3 [to install](https://maven.apache.org/download.cgi)  
+ 3. UnitTest : Junit4 
  4. BuildTools : TravisCI
  5. CodeCoverage : Coveralls
  6. version control : GitHub
