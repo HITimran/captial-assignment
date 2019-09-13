@@ -9,7 +9,7 @@ a sample project to calculate the area of a given shapes
  
 Create a library (preferable using C#) which will be used by a third-party to calculate an area of different shapes using an array of integers as an input.
 
-Requirements:
+###### Requirements:
 * Supported shapes: Circle (by radius), Triangle (by three sides)
 * Should be easily expendable to support other shapes without breaking the existing code
 * Should be covered with unit tests
