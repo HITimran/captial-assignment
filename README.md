@@ -20,7 +20,7 @@ Create a library (preferable using C#) which will be used by a third-party to ca
 ```
 A project is created to calculate the area of different shapes , 
 implemented shapes such as circle (using radius) and Triangle (using its 3 sides).
-The design pattern followed in this project is *factory design pattern* which falls under creational pattern
+The design pattern followed in this project is factory design pattern which falls under creational pattern
 design strategy ,
 in factory pattern , we refer to a newly created object using common interface, here we create an object 
 without exposing it to the client the creation logic.
