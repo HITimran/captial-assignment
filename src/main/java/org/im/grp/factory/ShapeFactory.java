@@ -37,6 +37,7 @@ public class ShapeFactory {
     private boolean hasNegativeSides(double[] sides) {
         try {
             return Arrays.stream(sides).filter(i -> i < 0).toArray().length > 0;
+            //Arrays.stream(sides).anyMatch(i-> i<0.0);
         } catch (NullPointerException e) {
             log.info(String.format("The arguments has null values %s ", sides));
             throw new NullPointerException("Sides cannot be null , Please enter a valid parameter");
