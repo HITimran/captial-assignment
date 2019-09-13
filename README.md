@@ -4,7 +4,7 @@ A sample project to calculate the area of a given shapes
 [![Build Status](https://api.travis-ci.com/HITimran/captial-assignment.svg?branch=master)](https://travis-ci.com/HITimran/captial-assignment)
 [![Coverage Status](https://coveralls.io/repos/github/HITimran/captial-assignment/badge.svg)](https://coveralls.io/github/HITimran/captial-assignment)
 
-### Overview
+## Overview
 ###### Task Descriptions:
  
 Create a library (preferable using C#) which will be used by a third-party to calculate an area of different shapes using an array of integers as an input.
@@ -32,7 +32,7 @@ Junit4 is being used to write the unit test .
  6. version control : GitHub
  7. Reporting : Jacoco , Coveralls 
 
-### Project Setup
+## Project Setup
 
 ###### Requirements
 This project does requires
@@ -49,7 +49,7 @@ Assuming user is familiar with usage and has software such as git CLI ,java 8 an
  - [x] after the successful build a ready to use library *[.jar]* is generated in the target directory,which can further be used as a 3rd party library.
  - [x] if required , you can also check out the Jacoco *report* generated in the home directory \report\testCoverage-reports\index.html
 
-### BuildTools And Reporting
+## BuildTools And Reporting
 - With each new feature/merge in git repository the build gets trigger automatically on Travis CI [Click Me for Build Info.](https://travis-ci.com/HITimran/captial-assignment) 
 - The coverage reports can be observed in coverall [Click me for Coverage Report](https://coveralls.io/github/HITimran/captial-assignment)
 - The offline Jacoco *reports* can also be generated to show the unit test coverage reports
