@@ -3,6 +3,7 @@ A sample project to calculate the area of a given shapes
 
 [![Build Status](https://travis-ci.com/HITimran/captial-assignment.svg?branch=master)](https://travis-ci.com/HITimran/captial-assignment)
 [![Coverage Status](https://coveralls.io/repos/github/HITimran/captial-assignment/badge.svg)](https://coveralls.io/github/HITimran/captial-assignment)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ## Overview
 ###### Task Descriptions:
