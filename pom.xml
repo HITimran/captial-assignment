@@ -9,6 +9,49 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>shapes-area-calculator</name>
+    <url>https://github.com/HITimran/captial-assignment</url>
+    <description>A sample project to calculate the area of a given shapes</description>
+    <inceptionYear>2019</inceptionYear>
+    <organization>
+        <name>HITimran</name>
+        <url>https://github.com/HITimran</url>
+    </organization>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+    <issueManagement>
+        <system>Github</system>
+        <url>https://github.com/HITimran/captial-assignment/issues</url>
+    </issueManagement>
+    <ciManagement>
+        <system>Travis</system>
+        <url>https://travis-ci.com/HITimran/captial-assignment</url>
+    </ciManagement>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
+    <developers>
+        <developer>
+            <name>Abdul Imran</name>
+            <email>Hitimran@gmail.com</email>
+            <organization>HITimran</organization>
+            <organizationUrl>https://github.com/HITimran</organizationUrl>
+            <timezone>UTC+01:00</timezone>
+        </developer>
+    </developers>
+
     <scm>
         <connection>scm:git:git://github.com/HITimran/captial-assignment.git</connection>
         <developerConnection>scm:git:git@github.com:HITimran/captial-assignment.git</developerConnection>
