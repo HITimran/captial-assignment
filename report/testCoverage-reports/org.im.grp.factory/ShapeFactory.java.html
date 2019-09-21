@@ -37,9 +37,10 @@ import java.util.logging.Logger;
     private boolean hasNegativeSides(double[] sides) {
         try {
 <span class="fc bfc" id="L39" title="All 4 branches covered.">            return Arrays.stream(sides).filter(i -&gt; i &lt; 0).toArray().length &gt; 0;</span>
-<span class="fc" id="L40">        } catch (NullPointerException e) {</span>
-<span class="fc" id="L41">            log.info(String.format(&quot;The arguments has null values %s &quot;, sides));</span>
-<span class="fc" id="L42">            throw new NullPointerException(&quot;Sides cannot be null , Please enter a valid parameter&quot;);</span>
+            //Arrays.stream(sides).anyMatch(i-&gt; i&lt;0.0);
+<span class="fc" id="L41">        } catch (NullPointerException e) {</span>
+<span class="fc" id="L42">            log.info(String.format(&quot;The arguments has null values %s &quot;, sides));</span>
+<span class="fc" id="L43">            throw new NullPointerException(&quot;Sides cannot be null , Please enter a valid parameter&quot;);</span>
         }
     }
 }
